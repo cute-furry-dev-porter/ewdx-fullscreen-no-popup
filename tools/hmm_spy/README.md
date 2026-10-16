@@ -1,10 +1,9 @@
-# hmm_spy — PC-side draw spy for Echidna Wars DX
+# hmm_spy - PC-side draw trace for Echidna Wars DX
 
-A drop-in replacement `hmm.dll` that **forwards every one of the real DLL's
-114 exports** to `hmm_real.dll` while logging the complete DG* draw stream in
-the same vocabulary as the Android port journals (`[pc-maw]`, `[pc-prim]`,
-`[pc-dump]`). PC ground truth and Android `[maw]`/`[prim]` logs become
-line-by-line diffable.
+A replacement `hmm.dll` that forwards all 114 exports of the original DLL to
+`hmm_real.dll` while logging the DG draw stream in the same format used by the
+Android port logs (`[pc-maw]`, `[pc-prim]`, `[pc-dump]`). PC output and Android
+`[maw]`/`[prim]` logs can then be compared line by line.
 
 ## Install (on the PC that runs the game)
 
@@ -21,9 +20,9 @@ Output: `hmm_spy.log` in the game folder (appends across runs).
   DGRECT / DGPOS / DGSCALEANDANGLE (with 8.8→float) / DGBLENDMODE / DGTEXTURE /
   DGLINE / DGBUFFER / DGREDRAW / DGADDPRIMITIVE / DGDRAWPRIMITIVE /
   DGCREATEPRIMITIVE, plus `DGGCOPY id flags`.
-- **The ring flushes to `hmm_spy.log` whenever `DGGCOPY 5` fires** — the POV
-  composite — so every squeeze moment produces a complete trace, marked
-  `[pc-dump] FLUSH ep=N`. No gigabytes of menu spam.
+- **The ring flushes to `hmm_spy.log` whenever `DGGCOPY 5` fires** - the composite
+  call - so each episode produces a complete trace, marked
+  `[pc-dump] FLUSH ep=N`. Menu output outside these flushes is not retained.
 
 ## Diffing against the port
 
@@ -54,7 +53,7 @@ Delete the spy `hmm.dll`, rename `hmm_real.dll` back to `hmm.dll`.
 
 ## Files
 
-- `hmm_spy.zig` — first draft (kept for reference; Zig 0.16 churn killed it)
-- `gen_spy_c.py` — generates `hmm_spy.c` from `hmm_names.txt`
-- `hmm_names.txt` — the 114 real export names (from `tools/hmm_exports.py`)
-- `hmm_spy.c` → `hmm.dll` — the built shim (x86)
+- `hmm_spy.zig` - earlier revision, retained for reference
+- `gen_spy_c.py` - generates `hmm_spy.c` from `hmm_names.txt`
+- `hmm_names.txt` - the 114 export names (from `tools/hmm_exports.py`)
+- `hmm_spy.c` -> `hmm.dll` - the built shim (x86)

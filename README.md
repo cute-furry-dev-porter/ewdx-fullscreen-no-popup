@@ -1,18 +1,18 @@
-# EchidnaWarsDX Android — Fullscreen / No-Popup Build
+# EchidnaWarsDX Android - Fullscreen / No-Popup Build
 
-Private working copy extracted from `tencentfurrys/ewdx-port`.
-Build removes the boot-time "previous run" dialog and its 10-second hold, and starts the game fullscreen. Crash/error dialogs are unchanged.
+Maintained under `cute-furry-dev-porter/ewdx-fullscreen-no-popup`.
+This build removes the boot-time "previous run" dialog and its 10-second hold, and starts the game fullscreen. Crash and error dialogs are unchanged.
 
-Source snapshot is from upstream `master`. Binary patch was applied directly to the shipped `libmain.so`; source edits below reproduce the same behavior on rebuild.
+The binary patch was applied directly to the shipped `libmain.so`. The source edits below reproduce the same behavior on rebuild.
 
 ## Layout
 
-- `apk-parts/` — shipped APK split for GitHub hosting (`EchidnaWarsDX_fullscreen.apk.part00/01`). Join to restore.
-- `patched-libs/arm64-v8a/libmain.so`, `patched-libs/armeabi-v7a/libmain.so` — patched natives, ready to swap into an APK.
-- `patch_libmain.py` — reapplies the binary patch to clean `libmain.so` files (requires `lief`).
-- `ewdx_ndk/` — native engine source (SDL2 + GLES2 translation layer, HSP runtime glue, boot/staging).
-- `android/` — Android Gradle wrapper.
-- `tools/` — asset and script analysis utilities.
+- `apk-parts/` - shipped APK split for GitHub hosting (`EchidnaWarsDX_fullscreen.apk.part00/01`). Join to restore.
+- `patched-libs/arm64-v8a/libmain.so`, `patched-libs/armeabi-v7a/libmain.so` - patched natives, ready to swap into an APK.
+- `patch_libmain.py` - reapplies the binary patch to clean `libmain.so` files (requires `lief`).
+- `ewdx_ndk/` - native engine source (SDL2 + GLES2 translation layer, HSP runtime glue, boot/staging).
+- `android/` - Android Gradle wrapper.
+- `tools/` - asset and script analysis utilities.
 
 ## Binary patch reference
 

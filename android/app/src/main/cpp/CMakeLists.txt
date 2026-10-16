@@ -1,11 +1,11 @@
 # Native build: SDL2 + SDL_ttf + ewdx translation layer (+ hsp3 core).
-# Layout assumed (sibling checkouts, see ewdx-port/refs.md):
+# Layout assumed (sibling checkouts, see ewdx-fullscreen-no-popup/refs.md):
 #   <root>/SDL2            (libsdl-org/SDL, branch SDL2)
 #   <root>/SDL_ttf         (libsdl-org/SDL_ttf, branch SDL2 + submodules:
 #                           git -C ../SDL_ttf submodule update --init)
 #   <root>/OpenHSP         (onitama/OpenHSP)
-#   <root>/ewdx-port/ewdx_ndk
-#   <root>/ewdx-port/android  (this project)
+#   <root>/ewdx-fullscreen-no-popup/ewdx_ndk
+#   <root>/ewdx-fullscreen-no-popup/android  (this project)
 cmake_minimum_required(VERSION 3.22)
 
 project(ewdx LANGUAGES C CXX)
@@ -18,8 +18,8 @@ add_link_options("-Wl,-z,max-page-size=16384")
 
 set(SDL_SHARED ON CACHE BOOL "" FORCE)
 set(SDL_STATIC OFF CACHE BOOL "" FORCE)
-# NOTE: paths are relative to this file (ewdx-port/android/app/src/main/cpp/).
-# SDL2/OpenHSP are sibling checkouts of ewdx-port (see refs.md).
+# NOTE: paths are relative to this file (ewdx-fullscreen-no-popup/android/app/src/main/cpp/).
+# SDL2/OpenHSP are sibling checkouts of ewdx-fullscreen-no-popup (see refs.md).
 add_subdirectory("../../../../../../SDL2" SDL2_build)
 
 # SDL_ttf (freetype/harfbuzz come from its own external/ submodules).

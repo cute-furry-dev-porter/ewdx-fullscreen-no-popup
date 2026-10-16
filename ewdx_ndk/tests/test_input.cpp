@@ -7,9 +7,9 @@
 // (implicitly asserted by exact mask equality throughout).
 //
 // Build (MinGW + host SDL2 static, from the workspace root):
-//   g++ -std=c++17 -I ewdx-port/ewdx_ndk/tests/shim -I ewdx-port/ewdx_ndk
-//       -I SDL2/include ewdx-port/ewdx_ndk/ewdx_input.cpp
-//       ewdx-port/ewdx_ndk/tests/test_input.cpp <sdlbuild>/libSDL2.a
+//   g++ -std=c++17 -I ewdx-fullscreen-no-popup/ewdx_ndk/tests/shim -I ewdx-fullscreen-no-popup/ewdx_ndk
+//       -I SDL2/include ewdx-fullscreen-no-popup/ewdx_ndk/ewdx_input.cpp
+//       ewdx-fullscreen-no-popup/ewdx_ndk/tests/test_input.cpp <sdlbuild>/libSDL2.a
 //       -luser32 -lgdi32 -lwinmm -limm32 -lole32 -loleaut32 -lshell32
 //       -lsetupapi -lversion -luuid -o test_input && ./test_input
 #include <stdio.h>

@@ -7,8 +7,8 @@
 // (game data, not in repo); the streamer above it is fully exercised via WAV.
 //
 // Build (MinGW, from the workspace root; backslashes shown, adapt as needed):
-//   gcc -c ewdx-port/ewdx_ndk/thirdparty/stb_vorbis.c -o stb.o
-//   g++ -std=c++17 -DEWDX_AUDIO_NULL_BACKEND -I ewdx-port/ewdx_ndk ...
+//   gcc -c ewdx-fullscreen-no-popup/ewdx_ndk/thirdparty/stb_vorbis.c -o stb.o
+//   g++ -std=c++17 -DEWDX_AUDIO_NULL_BACKEND -I ewdx-fullscreen-no-popup/ewdx_ndk ...
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>

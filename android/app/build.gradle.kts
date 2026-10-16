@@ -74,7 +74,7 @@ android {
             // The manifest's launcher activity is org.libsdl.app.SDLActivity;
             // without these sources classes.dex has no activity and the app
             // dies instantly with ClassNotFoundException (seen in bugreport).
-            // SDL2 is a sibling checkout (see ewdx-port/refs.md).
+            // SDL2 is a sibling checkout (see ewdx-fullscreen-no-popup/refs.md).
             java.srcDirs("../../../SDL2/android-project/app/src/main/java")
         }
     }
